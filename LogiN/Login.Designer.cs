@@ -1,6 +1,6 @@
 ﻿namespace LogiN
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             pictureBox2 = new PictureBox();
             label1 = new Label();
             txtUsuario = new TextBox();
@@ -104,7 +104,7 @@
             // 
             // btnEntrar
             // 
-            btnEntrar.Location = new Point(625, 422);
+            btnEntrar.Location = new Point(625, 459);
             btnEntrar.Margin = new Padding(3, 2, 3, 2);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(126, 28);
@@ -134,7 +134,7 @@
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -152,7 +152,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "Login";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

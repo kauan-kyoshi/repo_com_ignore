@@ -1,0 +1,509 @@
+﻿namespace LogiN
+{
+    partial class TelaClientes
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaClientes));
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            btnNovoClienteC = new Button();
+            panel2 = new Panel();
+            pictureBox2 = new PictureBox();
+            label3 = new Label();
+            label2 = new Label();
+            panelCadastroC = new Panel();
+            label8 = new Label();
+            CadastrarNovoCliente = new GroupBox();
+            label10 = new Label();
+            btnCancelarC = new Button();
+            btnSalvarC = new Button();
+            txtTelefoneC = new TextBox();
+            txtCPF = new TextBox();
+            txtNomeC = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            dgvClientes = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            btnPedidosC = new Button();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            btnServicosC = new Button();
+            btnClientesC = new Button();
+            btnEstoqueC = new Button();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelCadastroC.SuspendLayout();
+            CadastrarNovoCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // btnNovoClienteC
+            // 
+            btnNovoClienteC.BackColor = Color.FromArgb(191, 165, 187);
+            btnNovoClienteC.FlatAppearance.BorderSize = 0;
+            btnNovoClienteC.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnNovoClienteC.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnNovoClienteC.FlatStyle = FlatStyle.Flat;
+            btnNovoClienteC.Font = new Font("Century Gothic", 12F);
+            btnNovoClienteC.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNovoClienteC.Location = new Point(1067, 55);
+            btnNovoClienteC.Margin = new Padding(3, 2, 3, 2);
+            btnNovoClienteC.Name = "btnNovoClienteC";
+            btnNovoClienteC.Size = new Size(188, 37);
+            btnNovoClienteC.TabIndex = 24;
+            btnNovoClienteC.Text = "+ Novo Cliente";
+            btnNovoClienteC.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(pictureBox2);
+            panel2.Location = new Point(341, 144);
+            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(914, 47);
+            panel2.TabIndex = 23;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(8, 8);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(38, 29);
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            // 
+            // txtBuscaC
+            // 
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 10F);
+            label3.Location = new Point(349, 55);
+            label3.Name = "label3";
+            label3.Size = new Size(161, 19);
+            label3.TabIndex = 22;
+            label3.Text = "Gerencie seus clientes";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 16F, FontStyle.Bold);
+            label2.Location = new Point(349, 24);
+            label2.Name = "label2";
+            label2.Size = new Size(238, 26);
+            label2.TabIndex = 21;
+            label2.Text = "Cadastro de Clientes";
+            // 
+            // panelCadastroC
+            // 
+            panelCadastroC.BackColor = Color.White;
+            panelCadastroC.Controls.Add(label8);
+            panelCadastroC.Controls.Add(CadastrarNovoCliente);
+            panelCadastroC.Location = new Point(300, 0);
+            panelCadastroC.Name = "panelCadastroC";
+            panelCadastroC.Size = new Size(992, 620);
+            panelCadastroC.TabIndex = 27;
+            panelCadastroC.Paint += panelCadastroCliente_Paint;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(426, 350);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 15);
+            label8.TabIndex = 3;
+            // 
+            // CadastrarNovoCliente
+            // 
+            CadastrarNovoCliente.Controls.Add(label10);
+            CadastrarNovoCliente.Controls.Add(btnCancelarC);
+            CadastrarNovoCliente.Controls.Add(btnSalvarC);
+            CadastrarNovoCliente.Controls.Add(txtTelefoneC);
+            CadastrarNovoCliente.Controls.Add(txtCPF);
+            CadastrarNovoCliente.Controls.Add(txtNomeC);
+            CadastrarNovoCliente.Controls.Add(label5);
+            CadastrarNovoCliente.Controls.Add(label4);
+            CadastrarNovoCliente.Controls.Add(label7);
+            CadastrarNovoCliente.Controls.Add(label6);
+            CadastrarNovoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CadastrarNovoCliente.Location = new Point(60, 109);
+            CadastrarNovoCliente.Name = "CadastrarNovoCliente";
+            CadastrarNovoCliente.Size = new Size(890, 377);
+            CadastrarNovoCliente.TabIndex = 0;
+            CadastrarNovoCliente.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Century Gothic", 10F);
+            label10.Location = new Point(20, 43);
+            label10.Name = "label10";
+            label10.Size = new Size(161, 19);
+            label10.TabIndex = 23;
+            label10.Text = "Gerencie seus clientes";
+            // 
+            // btnCancelarC
+            // 
+            btnCancelarC.BackColor = Color.White;
+            btnCancelarC.FlatAppearance.BorderSize = 0;
+            btnCancelarC.FlatStyle = FlatStyle.Flat;
+            btnCancelarC.Font = new Font("Century Gothic", 10F);
+            btnCancelarC.Location = new Point(777, 331);
+            btnCancelarC.Margin = new Padding(3, 2, 3, 2);
+            btnCancelarC.Name = "btnCancelarC";
+            btnCancelarC.Size = new Size(94, 26);
+            btnCancelarC.TabIndex = 9;
+            btnCancelarC.Text = "Cancelar";
+            btnCancelarC.UseVisualStyleBackColor = false;
+            // 
+            // btnSalvarC
+            // 
+            btnSalvarC.BackColor = Color.FromArgb(191, 165, 187);
+            btnSalvarC.FlatAppearance.BorderSize = 0;
+            btnSalvarC.FlatStyle = FlatStyle.Flat;
+            btnSalvarC.Font = new Font("Century Gothic", 10F);
+            btnSalvarC.Location = new Point(668, 331);
+            btnSalvarC.Margin = new Padding(3, 2, 3, 2);
+            btnSalvarC.Name = "btnSalvarC";
+            btnSalvarC.Size = new Size(94, 26);
+            btnSalvarC.TabIndex = 8;
+            btnSalvarC.Text = "Salvar";
+            btnSalvarC.UseVisualStyleBackColor = false;
+            btnSalvarC.Click += btnSalvarClientes_Click;
+            // 
+            // txtTelefoneC
+            // 
+            txtTelefoneC.Location = new Point(46, 176);
+            txtTelefoneC.Name = "txtTelefoneC";
+            txtTelefoneC.Size = new Size(784, 25);
+            txtTelefoneC.TabIndex = 5;
+            // 
+            // txtCPF
+            // 
+            txtCPF.Location = new Point(46, 249);
+            txtCPF.Name = "txtCPF";
+            txtCPF.Size = new Size(784, 25);
+            txtCPF.TabIndex = 4;
+            // 
+            // txtNomeC
+            // 
+            txtNomeC.Location = new Point(46, 106);
+            txtNomeC.Name = "txtNomeC";
+            txtNomeC.Size = new Size(784, 25);
+            txtNomeC.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 9.75F);
+            label5.Location = new Point(46, 156);
+            label5.Name = "label5";
+            label5.Size = new Size(61, 17);
+            label5.TabIndex = 1;
+            label5.Text = "Telefone";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 9.75F);
+            label4.Location = new Point(46, 86);
+            label4.Name = "label4";
+            label4.Size = new Size(119, 17);
+            label4.TabIndex = 0;
+            label4.Text = "Nome Completo";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 15F, FontStyle.Bold);
+            label7.Location = new Point(20, 21);
+            label7.Name = "label7";
+            label7.Size = new Size(239, 23);
+            label7.TabIndex = 2;
+            label7.Text = "Cadastrar Novo Cliente";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Century Gothic", 9.75F);
+            label6.Location = new Point(46, 229);
+            label6.Name = "label6";
+            label6.Size = new Size(33, 17);
+            label6.TabIndex = 1;
+            label6.Text = "CPF";
+            // 
+            // dgvClientes
+            // 
+            dgvClientes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.BackgroundColor = Color.White;
+            dgvClientes.BorderStyle = BorderStyle.None;
+            dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvClientes.ColumnHeadersHeight = 50;
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.MediumAquamarine;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvClientes.EnableHeadersVisualStyles = false;
+            dgvClientes.Location = new Point(335, 293);
+            dgvClientes.Margin = new Padding(3, 2, 3, 2);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.RowHeadersVisible = false;
+            dgvClientes.RowHeadersWidth = 45;
+            dgvClientes.RowTemplate.Height = 40;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.Size = new Size(920, 411);
+            dgvClientes.TabIndex = 24;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Nome";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "CPF";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Telefone";
+            Column3.Name = "Column3";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnPedidosC);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnServicosC);
+            panel1.Controls.Add(btnClientesC);
+            panel1.Controls.Add(btnEstoqueC);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(294, 620);
+            panel1.TabIndex = 28;
+            // 
+            // btnPedidosC
+            // 
+            btnPedidosC.BackColor = Color.White;
+            btnPedidosC.FlatAppearance.BorderSize = 0;
+            btnPedidosC.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnPedidosC.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnPedidosC.FlatStyle = FlatStyle.Flat;
+            btnPedidosC.Font = new Font("Century Gothic", 12F);
+            btnPedidosC.Image = (Image)resources.GetObject("btnPedidosC.Image");
+            btnPedidosC.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPedidosC.Location = new Point(23, 503);
+            btnPedidosC.Margin = new Padding(3, 2, 3, 2);
+            btnPedidosC.Name = "btnPedidosC";
+            btnPedidosC.Size = new Size(255, 48);
+            btnPedidosC.TabIndex = 6;
+            btnPedidosC.Text = "Pedidos";
+            btnPedidosC.UseVisualStyleBackColor = false;
+            btnPedidosC.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 13F, FontStyle.Bold);
+            label1.Location = new Point(41, 124);
+            label1.Name = "label1";
+            label1.Size = new Size(207, 22);
+            label1.TabIndex = 5;
+            label1.Text = "Bem-vinda ao Sistema";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(23, 2);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(255, 129);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // btnServicosC
+            // 
+            btnServicosC.BackColor = Color.White;
+            btnServicosC.FlatAppearance.BorderSize = 0;
+            btnServicosC.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnServicosC.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnServicosC.FlatStyle = FlatStyle.Flat;
+            btnServicosC.Font = new Font("Century Gothic", 12F);
+            btnServicosC.Image = (Image)resources.GetObject("btnServicosC.Image");
+            btnServicosC.ImageAlign = ContentAlignment.MiddleLeft;
+            btnServicosC.Location = new Point(23, 418);
+            btnServicosC.Margin = new Padding(3, 2, 3, 2);
+            btnServicosC.Name = "btnServicosC";
+            btnServicosC.Size = new Size(255, 48);
+            btnServicosC.TabIndex = 2;
+            btnServicosC.Text = "Serviços";
+            btnServicosC.UseVisualStyleBackColor = false;
+            btnServicosC.Click += btnServicos_Click;
+            // 
+            // btnClientesC
+            // 
+            btnClientesC.BackColor = Color.White;
+            btnClientesC.FlatAppearance.BorderSize = 0;
+            btnClientesC.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnClientesC.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnClientesC.FlatStyle = FlatStyle.Flat;
+            btnClientesC.Font = new Font("Century Gothic", 12F);
+            btnClientesC.Image = (Image)resources.GetObject("btnClientesC.Image");
+            btnClientesC.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClientesC.Location = new Point(23, 333);
+            btnClientesC.Margin = new Padding(3, 2, 3, 2);
+            btnClientesC.Name = "btnClientesC";
+            btnClientesC.Size = new Size(255, 48);
+            btnClientesC.TabIndex = 1;
+            btnClientesC.Text = "Clientes";
+            btnClientesC.UseVisualStyleBackColor = false;
+            // 
+            // btnEstoqueC
+            // 
+            btnEstoqueC.BackColor = Color.White;
+            btnEstoqueC.FlatAppearance.BorderSize = 0;
+            btnEstoqueC.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnEstoqueC.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnEstoqueC.FlatStyle = FlatStyle.Flat;
+            btnEstoqueC.Font = new Font("Century Gothic", 12F);
+            btnEstoqueC.ForeColor = Color.Black;
+            btnEstoqueC.Image = (Image)resources.GetObject("btnEstoqueC.Image");
+            btnEstoqueC.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEstoqueC.Location = new Point(23, 248);
+            btnEstoqueC.Margin = new Padding(3, 2, 3, 2);
+            btnEstoqueC.Name = "btnEstoqueC";
+            btnEstoqueC.Size = new Size(255, 48);
+            btnEstoqueC.TabIndex = 0;
+            btnEstoqueC.Text = "Estoque";
+            btnEstoqueC.UseVisualStyleBackColor = false;
+            // 
+            // TelaClientes
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1291, 620);
+            Controls.Add(panel1);
+            Controls.Add(panelCadastroC);
+            Controls.Add(dgvClientes);
+            Controls.Add(btnNovoClienteC);
+            Controls.Add(panel2);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            MaximizeBox = false;
+            Name = "TelaClientes";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Cadastro";
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelCadastroC.ResumeLayout(false);
+            panelCadastroC.PerformLayout();
+            CadastrarNovoCliente.ResumeLayout(false);
+            CadastrarNovoCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button btnNovoClienteC;
+        private Panel panel2;
+        private PictureBox pictureBox2;
+        private Label label3;
+        private Label label2;
+        private Panel panelCadastroC;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private GroupBox CadastrarNovoCliente;
+        private Label label5;
+        private Label label4;
+        private Label label10;
+        private TextBox txtTelefoneC;
+        private TextBox txtCPF;
+        private TextBox txtNomeC;
+        private Button btnSalvarC;
+        private Button btnCancelarC;
+        private DataGridView dgvClientes;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private Panel panel1;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private Button btnServicosC;
+        private Button btnClientesC;
+        private Button btnEstoqueC;
+        private Button btnPedidosC;
+    }
+}

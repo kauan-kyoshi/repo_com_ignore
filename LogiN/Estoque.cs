@@ -9,13 +9,13 @@ namespace LogiN
         public TelaEstoque()
         {
             InitializeComponent();
-            btnEstoque.BackColor = Color.FromArgb(191, 165, 187);
-            btnEstoque.ForeColor = Color.Black;
+            btnEstoqueE.BackColor = Color.FromArgb(191, 165, 187);
+            btnEstoqueE.ForeColor = Color.Black;
             this.StartPosition = FormStartPosition.CenterScreen;
 
             ConfigurarColunas();
 
-            panelCadastro.Visible = false;
+            panelCadastroE.Visible = false;
 
             dataGridView1.Rows.Add("Tecido Algodão Branco", "25", "Tecido");
             dataGridView1.Rows.Add("Tecido Jeans Azul", "15", "Tecido");
@@ -77,20 +77,20 @@ namespace LogiN
         private void btnAbrirCadastro_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = false;
-            panelCadastro.Visible = true;
-            panelCadastro.BringToFront();
+            panelCadastroE.Visible = true;
+            panelCadastroE.BringToFront();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            string nome = txtNomeItem.Text;
-            int quantidade = (int)Quantidade.Value;
-            string categoria = cmbCategoria.SelectedItem?.ToString() ?? "";
+            string nome = txtNomeItemE.Text;
+            int quantidade = (int)QuantidadeE.Value;
+            string categoria = cmbCategoriaE.SelectedItem?.ToString() ?? "";
 
             if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(categoria))
             {
                 dataGridView1.Rows.Add(nome, quantidade.ToString(), categoria);
-                panelCadastro.Visible = false;
+                panelCadastroE.Visible = false;
                 dataGridView1.Visible = true;
             }
             else
@@ -101,7 +101,7 @@ namespace LogiN
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            panelCadastro.Visible = false;
+            panelCadastroE.Visible = false;
             dataGridView1.Visible = true;
         }
 
@@ -112,7 +112,7 @@ namespace LogiN
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            string termoBusca = txtBusca.Text.ToLower();
+            string termoBusca = txtBuscaE.Text.ToLower();
 
             foreach (DataGridViewRow linha in dataGridView1.Rows)
             {
@@ -132,18 +132,18 @@ namespace LogiN
 
         private void btnSalvarEstoque_Click(object sender, EventArgs e)
         {
-            string nome = txtNomeItem.Text;
-            int quantidade = (int)Quantidade.Value;
-            string categoria = cmbCategoria.SelectedItem?.ToString() ?? "";
+            string nome = txtNomeItemE.Text;
+            int quantidade = (int)QuantidadeE.Value;
+            string categoria = cmbCategoriaE.SelectedItem?.ToString() ?? "";
 
             if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(categoria))
             {
                 dataGridView1.Rows.Add(nome, quantidade.ToString(), categoria);
 
-                txtNomeItem.Clear();
-                Quantidade.Value = 0;
-                cmbCategoria.SelectedIndex = -1;
-                panelCadastro.Visible = false;
+                txtNomeItemE.Clear();
+                QuantidadeE.Value = 0;
+                cmbCategoriaE.SelectedIndex = -1;
+                panelCadastroE.Visible = false;
                 dataGridView1.Visible = true;
             }
             else
@@ -154,26 +154,11 @@ namespace LogiN
 
         private void btnCancelarEstoque_Click(object sender, EventArgs e)
         {
-            txtNomeItem.Clear();
-            Quantidade.Value = 0;
-            cmbCategoria.SelectedIndex = -1;
-            panelCadastro.Visible = false;
+            txtNomeItemE.Clear();
+            QuantidadeE.Value = 0;
+            cmbCategoriaE.SelectedIndex = -1;
+            panelCadastroE.Visible = false;
             dataGridView1.Visible = true;
-        }
-
-        private void TelaEstoque_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            TelaCadastro telaClientes = new TelaCadastro();
-            telaClientes.Show();
-        }
-
-        private void btnEstoque_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnClientes_Click_1(object sender, EventArgs e)
@@ -191,7 +176,12 @@ namespace LogiN
             this.Hide();
         }
 
-
+        private void btnServicosE_Click(object sender, EventArgs e)
+        {
+            TelaServicos tela = new TelaServicos();
+            tela.Show();
+            this.Hide();
+        }
     }
 }
 

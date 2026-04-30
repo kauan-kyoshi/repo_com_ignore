@@ -43,7 +43,7 @@ namespace LogiN
 
         private void button4_Click(object sender, EventArgs e)
         {
-            TelaCadastro tela = new TelaCadastro();
+            TelaClientes tela = new TelaClientes();
             tela.Show();
             this.Hide();
         }

@@ -1,8 +1,8 @@
 namespace LogiN
 {
-    public partial class Form1 : System.Windows.Forms.Form
+    public partial class Login : System.Windows.Forms.Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             this.AcceptButton = btnEntrar;
@@ -39,6 +39,11 @@ namespace LogiN
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
             txtSenha.PasswordChar = '*';
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

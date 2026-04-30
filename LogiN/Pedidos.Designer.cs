@@ -39,31 +39,29 @@
             btnClientes = new Button();
             btnEstoque = new Button();
             panel1 = new Panel();
-            button2 = new Button();
+            btnServicosP = new Button();
             label2 = new Label();
             pictureBox2 = new PictureBox();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            btnPedidosP = new Button();
+            btnClientesP = new Button();
+            btnEstoqueP = new Button();
             panel3 = new Panel();
             pictureBox3 = new PictureBox();
-            txtBuscaPedidos = new TextBox();
-            dgbPedidos = new DataGridView();
+            txtBuscaP = new TextBox();
+            dgvPedidos = new DataGridView();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
-            label10 = new Label();
-            label9 = new Label();
             label8 = new Label();
             CadastrarNovoCliente = new GroupBox();
-            txtValorPedidos = new TextBox();
-            ClientePedidos = new ComboBox();
-            TipodeServico = new ComboBox();
-            StatusPedidos = new ComboBox();
+            txtValorP = new TextBox();
+            ClienteP = new ComboBox();
+            TipodeServicoP = new ComboBox();
+            StatusP = new ComboBox();
             label11 = new Label();
-            btnCancelarCliente = new Button();
-            btnSalvarClientes = new Button();
+            btnVoltarP = new Button();
+            btnSalvarP = new Button();
             label5 = new Label();
             label4 = new Label();
             label7 = new Label();
@@ -73,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgbPedidos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             CadastrarNovoCliente.SuspendLayout();
             SuspendLayout();
             // 
@@ -173,13 +171,13 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.WhiteSmoke;
-            panel1.Controls.Add(button2);
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnServicosP);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button5);
+            panel1.Controls.Add(btnPedidosP);
+            panel1.Controls.Add(btnClientesP);
+            panel1.Controls.Add(btnEstoqueP);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
@@ -187,28 +185,29 @@
             panel1.Size = new Size(294, 620);
             panel1.TabIndex = 21;
             // 
-            // button2
+            // btnServicosP
             // 
-            button2.BackColor = Color.WhiteSmoke;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 12F);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(21, 407);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(255, 48);
-            button2.TabIndex = 6;
-            button2.Text = "Serviços";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnServicosP.BackColor = Color.White;
+            btnServicosP.FlatAppearance.BorderSize = 0;
+            btnServicosP.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnServicosP.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnServicosP.FlatStyle = FlatStyle.Flat;
+            btnServicosP.Font = new Font("Century Gothic", 12F);
+            btnServicosP.Image = (Image)resources.GetObject("btnServicosP.Image");
+            btnServicosP.ImageAlign = ContentAlignment.MiddleLeft;
+            btnServicosP.Location = new Point(21, 412);
+            btnServicosP.Margin = new Padding(3, 2, 3, 2);
+            btnServicosP.Name = "btnServicosP";
+            btnServicosP.Size = new Size(255, 48);
+            btnServicosP.TabIndex = 6;
+            btnServicosP.Text = "Serviços";
+            btnServicosP.UseVisualStyleBackColor = false;
+            btnServicosP.Click += button2_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.White;
             label2.Font = new Font("Century Gothic", 13F, FontStyle.Bold);
             label2.Location = new Point(41, 124);
             label2.Name = "label2";
@@ -218,6 +217,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.BackColor = Color.White;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(23, 2);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
@@ -227,69 +227,69 @@
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
             // 
-            // button3
+            // btnPedidosP
             // 
-            button3.BackColor = Color.WhiteSmoke;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Century Gothic", 12F);
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(23, 483);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(255, 48);
-            button3.TabIndex = 2;
-            button3.Text = "Pedidos";
-            button3.UseVisualStyleBackColor = false;
+            btnPedidosP.BackColor = Color.White;
+            btnPedidosP.FlatAppearance.BorderSize = 0;
+            btnPedidosP.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnPedidosP.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnPedidosP.FlatStyle = FlatStyle.Flat;
+            btnPedidosP.Font = new Font("Century Gothic", 12F);
+            btnPedidosP.Image = (Image)resources.GetObject("btnPedidosP.Image");
+            btnPedidosP.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPedidosP.Location = new Point(23, 494);
+            btnPedidosP.Margin = new Padding(3, 2, 3, 2);
+            btnPedidosP.Name = "btnPedidosP";
+            btnPedidosP.Size = new Size(255, 48);
+            btnPedidosP.TabIndex = 2;
+            btnPedidosP.Text = "Pedidos";
+            btnPedidosP.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnClientesP
             // 
-            button4.BackColor = Color.WhiteSmoke;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
-            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Century Gothic", 12F);
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(23, 331);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(255, 48);
-            button4.TabIndex = 1;
-            button4.Text = "Clientes";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            btnClientesP.BackColor = Color.White;
+            btnClientesP.FlatAppearance.BorderSize = 0;
+            btnClientesP.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnClientesP.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnClientesP.FlatStyle = FlatStyle.Flat;
+            btnClientesP.Font = new Font("Century Gothic", 12F);
+            btnClientesP.Image = (Image)resources.GetObject("btnClientesP.Image");
+            btnClientesP.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClientesP.Location = new Point(23, 330);
+            btnClientesP.Margin = new Padding(3, 2, 3, 2);
+            btnClientesP.Name = "btnClientesP";
+            btnClientesP.Size = new Size(255, 48);
+            btnClientesP.TabIndex = 1;
+            btnClientesP.Text = "Clientes";
+            btnClientesP.UseVisualStyleBackColor = false;
+            btnClientesP.Click += button4_Click;
             // 
-            // button5
+            // btnEstoqueP
             // 
-            button5.BackColor = Color.WhiteSmoke;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
-            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Century Gothic", 12F);
-            button5.ForeColor = Color.Black;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(23, 248);
-            button5.Margin = new Padding(3, 2, 3, 2);
-            button5.Name = "button5";
-            button5.Size = new Size(255, 48);
-            button5.TabIndex = 0;
-            button5.Text = "Estoque";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            btnEstoqueP.BackColor = Color.White;
+            btnEstoqueP.FlatAppearance.BorderSize = 0;
+            btnEstoqueP.FlatAppearance.MouseDownBackColor = Color.FromArgb(191, 165, 187);
+            btnEstoqueP.FlatAppearance.MouseOverBackColor = Color.FromArgb(191, 165, 187);
+            btnEstoqueP.FlatStyle = FlatStyle.Flat;
+            btnEstoqueP.Font = new Font("Century Gothic", 12F);
+            btnEstoqueP.ForeColor = Color.Black;
+            btnEstoqueP.Image = (Image)resources.GetObject("btnEstoqueP.Image");
+            btnEstoqueP.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEstoqueP.Location = new Point(23, 248);
+            btnEstoqueP.Margin = new Padding(3, 2, 3, 2);
+            btnEstoqueP.Name = "btnEstoqueP";
+            btnEstoqueP.Size = new Size(255, 48);
+            btnEstoqueP.TabIndex = 0;
+            btnEstoqueP.Text = "Estoque";
+            btnEstoqueP.UseVisualStyleBackColor = false;
+            btnEstoqueP.Click += button5_Click;
             // 
             // panel3
             // 
-            panel3.BackColor = Color.WhiteSmoke;
+            panel3.BackColor = Color.White;
             panel3.Controls.Add(pictureBox3);
-            panel3.Controls.Add(txtBuscaPedidos);
-            panel3.Location = new Point(352, 331);
+            panel3.Controls.Add(txtBuscaP);
+            panel3.Location = new Point(344, 313);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(898, 47);
@@ -305,31 +305,31 @@
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
             // 
-            // txtBuscaPedidos
+            // txtBuscaP
             // 
-            txtBuscaPedidos.BackColor = Color.White;
-            txtBuscaPedidos.Location = new Point(52, 8);
-            txtBuscaPedidos.Margin = new Padding(3, 2, 3, 2);
-            txtBuscaPedidos.Multiline = true;
-            txtBuscaPedidos.Name = "txtBuscaPedidos";
-            txtBuscaPedidos.Size = new Size(838, 30);
-            txtBuscaPedidos.TabIndex = 0;
+            txtBuscaP.BackColor = Color.White;
+            txtBuscaP.Location = new Point(52, 8);
+            txtBuscaP.Margin = new Padding(3, 2, 3, 2);
+            txtBuscaP.Multiline = true;
+            txtBuscaP.Name = "txtBuscaP";
+            txtBuscaP.Size = new Size(838, 30);
+            txtBuscaP.TabIndex = 0;
             // 
-            // dgbPedidos
+            // dgvPedidos
             // 
-            dgbPedidos.AllowUserToResizeRows = false;
+            dgvPedidos.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle4.ForeColor = Color.White;
             dataGridViewCellStyle4.SelectionBackColor = Color.White;
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgbPedidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgbPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgbPedidos.BackgroundColor = Color.WhiteSmoke;
-            dgbPedidos.BorderStyle = BorderStyle.None;
-            dgbPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgbPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvPedidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPedidos.BackgroundColor = Color.White;
+            dgvPedidos.BorderStyle = BorderStyle.None;
+            dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -337,9 +337,9 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.White;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgbPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dgbPedidos.ColumnHeadersHeight = 50;
-            dgbPedidos.Columns.AddRange(new DataGridViewColumn[] { Column5, Column6, Column7, Column8 });
+            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvPedidos.ColumnHeadersHeight = 50;
+            dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { Column5, Column6, Column7, Column8 });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.Window;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -347,17 +347,17 @@
             dataGridViewCellStyle6.SelectionBackColor = Color.MediumAquamarine;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgbPedidos.DefaultCellStyle = dataGridViewCellStyle6;
-            dgbPedidos.EnableHeadersVisualStyles = false;
-            dgbPedidos.Location = new Point(352, 395);
-            dgbPedidos.Margin = new Padding(3, 2, 3, 2);
-            dgbPedidos.Name = "dgbPedidos";
-            dgbPedidos.RowHeadersVisible = false;
-            dgbPedidos.RowHeadersWidth = 45;
-            dgbPedidos.RowTemplate.Height = 40;
-            dgbPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgbPedidos.Size = new Size(898, 225);
-            dgbPedidos.TabIndex = 31;
+            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvPedidos.EnableHeadersVisualStyles = false;
+            dgvPedidos.Location = new Point(344, 395);
+            dgvPedidos.Margin = new Padding(3, 2, 3, 2);
+            dgvPedidos.Name = "dgvPedidos";
+            dgvPedidos.RowHeadersVisible = false;
+            dgvPedidos.RowHeadersWidth = 45;
+            dgvPedidos.RowTemplate.Height = 40;
+            dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPedidos.Size = new Size(898, 431);
+            dgvPedidos.TabIndex = 31;
             // 
             // Column5
             // 
@@ -379,26 +379,6 @@
             Column8.HeaderText = "Status";
             Column8.Name = "Column8";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Century Gothic", 10F);
-            label10.Location = new Point(352, 40);
-            label10.Name = "label10";
-            label10.Size = new Size(149, 19);
-            label10.TabIndex = 30;
-            label10.Text = "Analise seus pedidos";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(352, 9);
-            label9.Name = "label9";
-            label9.Size = new Size(92, 25);
-            label9.TabIndex = 29;
-            label9.Text = "Pedidos";
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -409,60 +389,60 @@
             // 
             // CadastrarNovoCliente
             // 
-            CadastrarNovoCliente.Controls.Add(txtValorPedidos);
-            CadastrarNovoCliente.Controls.Add(ClientePedidos);
-            CadastrarNovoCliente.Controls.Add(TipodeServico);
-            CadastrarNovoCliente.Controls.Add(StatusPedidos);
+            CadastrarNovoCliente.Controls.Add(txtValorP);
+            CadastrarNovoCliente.Controls.Add(ClienteP);
+            CadastrarNovoCliente.Controls.Add(TipodeServicoP);
+            CadastrarNovoCliente.Controls.Add(StatusP);
             CadastrarNovoCliente.Controls.Add(label11);
-            CadastrarNovoCliente.Controls.Add(btnCancelarCliente);
-            CadastrarNovoCliente.Controls.Add(btnSalvarClientes);
+            CadastrarNovoCliente.Controls.Add(btnVoltarP);
+            CadastrarNovoCliente.Controls.Add(btnSalvarP);
             CadastrarNovoCliente.Controls.Add(label5);
             CadastrarNovoCliente.Controls.Add(label4);
             CadastrarNovoCliente.Controls.Add(label7);
             CadastrarNovoCliente.Controls.Add(label6);
             CadastrarNovoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CadastrarNovoCliente.Location = new Point(352, 62);
+            CadastrarNovoCliente.Location = new Point(344, 24);
             CadastrarNovoCliente.Name = "CadastrarNovoCliente";
             CadastrarNovoCliente.Size = new Size(898, 244);
             CadastrarNovoCliente.TabIndex = 27;
             CadastrarNovoCliente.TabStop = false;
             // 
-            // txtValorPedidos
+            // txtValorP
             // 
-            txtValorPedidos.Location = new Point(20, 148);
-            txtValorPedidos.Name = "txtValorPedidos";
-            txtValorPedidos.Size = new Size(382, 25);
-            txtValorPedidos.TabIndex = 15;
+            txtValorP.Location = new Point(20, 148);
+            txtValorP.Name = "txtValorP";
+            txtValorP.Size = new Size(382, 25);
+            txtValorP.TabIndex = 15;
             // 
-            // ClientePedidos
+            // ClienteP
             // 
-            ClientePedidos.FormattingEnabled = true;
-            ClientePedidos.Items.AddRange(new object[] { "Tecido", "Linha", "Aviamentos" });
-            ClientePedidos.Location = new Point(20, 77);
-            ClientePedidos.Margin = new Padding(3, 2, 3, 2);
-            ClientePedidos.Name = "ClientePedidos";
-            ClientePedidos.Size = new Size(382, 25);
-            ClientePedidos.TabIndex = 14;
+            ClienteP.FormattingEnabled = true;
+            ClienteP.Items.AddRange(new object[] { "Tecido", "Linha", "Aviamentos" });
+            ClienteP.Location = new Point(20, 77);
+            ClienteP.Margin = new Padding(3, 2, 3, 2);
+            ClienteP.Name = "ClienteP";
+            ClienteP.Size = new Size(382, 25);
+            ClienteP.TabIndex = 14;
             // 
-            // TipodeServico
+            // TipodeServicoP
             // 
-            TipodeServico.FormattingEnabled = true;
-            TipodeServico.Items.AddRange(new object[] { "Tecido", "Linha", "Aviamentos" });
-            TipodeServico.Location = new Point(488, 78);
-            TipodeServico.Margin = new Padding(3, 2, 3, 2);
-            TipodeServico.Name = "TipodeServico";
-            TipodeServico.Size = new Size(382, 25);
-            TipodeServico.TabIndex = 13;
+            TipodeServicoP.FormattingEnabled = true;
+            TipodeServicoP.Items.AddRange(new object[] { "Tecido", "Linha", "Aviamentos" });
+            TipodeServicoP.Location = new Point(488, 78);
+            TipodeServicoP.Margin = new Padding(3, 2, 3, 2);
+            TipodeServicoP.Name = "TipodeServicoP";
+            TipodeServicoP.Size = new Size(382, 25);
+            TipodeServicoP.TabIndex = 13;
             // 
-            // StatusPedidos
+            // StatusP
             // 
-            StatusPedidos.FormattingEnabled = true;
-            StatusPedidos.Items.AddRange(new object[] { "Tecido", "Linha", "Aviamentos" });
-            StatusPedidos.Location = new Point(488, 148);
-            StatusPedidos.Margin = new Padding(3, 2, 3, 2);
-            StatusPedidos.Name = "StatusPedidos";
-            StatusPedidos.Size = new Size(382, 25);
-            StatusPedidos.TabIndex = 12;
+            StatusP.FormattingEnabled = true;
+            StatusP.Items.AddRange(new object[] { "Tecido", "Linha", "Aviamentos" });
+            StatusP.Location = new Point(488, 148);
+            StatusP.Margin = new Padding(3, 2, 3, 2);
+            StatusP.Name = "StatusP";
+            StatusP.Size = new Size(382, 25);
+            StatusP.TabIndex = 12;
             // 
             // label11
             // 
@@ -473,33 +453,33 @@
             label11.TabIndex = 11;
             label11.Text = "Status";
             // 
-            // btnCancelarCliente
+            // btnVoltarP
             // 
-            btnCancelarCliente.BackColor = Color.White;
-            btnCancelarCliente.FlatAppearance.BorderSize = 0;
-            btnCancelarCliente.FlatStyle = FlatStyle.Flat;
-            btnCancelarCliente.Font = new Font("Century Gothic", 10F);
-            btnCancelarCliente.Location = new Point(150, 195);
-            btnCancelarCliente.Margin = new Padding(3, 2, 3, 2);
-            btnCancelarCliente.Name = "btnCancelarCliente";
-            btnCancelarCliente.Size = new Size(94, 26);
-            btnCancelarCliente.TabIndex = 9;
-            btnCancelarCliente.Text = "Voltar";
-            btnCancelarCliente.UseVisualStyleBackColor = false;
+            btnVoltarP.BackColor = Color.White;
+            btnVoltarP.FlatAppearance.BorderSize = 0;
+            btnVoltarP.FlatStyle = FlatStyle.Flat;
+            btnVoltarP.Font = new Font("Century Gothic", 10F);
+            btnVoltarP.Location = new Point(150, 195);
+            btnVoltarP.Margin = new Padding(3, 2, 3, 2);
+            btnVoltarP.Name = "btnVoltarP";
+            btnVoltarP.Size = new Size(94, 26);
+            btnVoltarP.TabIndex = 9;
+            btnVoltarP.Text = "Voltar";
+            btnVoltarP.UseVisualStyleBackColor = false;
             // 
-            // btnSalvarClientes
+            // btnSalvarP
             // 
-            btnSalvarClientes.BackColor = Color.FromArgb(191, 165, 187);
-            btnSalvarClientes.FlatAppearance.BorderSize = 0;
-            btnSalvarClientes.FlatStyle = FlatStyle.Flat;
-            btnSalvarClientes.Font = new Font("Century Gothic", 10F);
-            btnSalvarClientes.Location = new Point(20, 195);
-            btnSalvarClientes.Margin = new Padding(3, 2, 3, 2);
-            btnSalvarClientes.Name = "btnSalvarClientes";
-            btnSalvarClientes.Size = new Size(94, 26);
-            btnSalvarClientes.TabIndex = 8;
-            btnSalvarClientes.Text = "Salvar";
-            btnSalvarClientes.UseVisualStyleBackColor = false;
+            btnSalvarP.BackColor = Color.FromArgb(191, 165, 187);
+            btnSalvarP.FlatAppearance.BorderSize = 0;
+            btnSalvarP.FlatStyle = FlatStyle.Flat;
+            btnSalvarP.Font = new Font("Century Gothic", 10F);
+            btnSalvarP.Location = new Point(20, 195);
+            btnSalvarP.Margin = new Padding(3, 2, 3, 2);
+            btnSalvarP.Name = "btnSalvarP";
+            btnSalvarP.Size = new Size(94, 26);
+            btnSalvarP.TabIndex = 8;
+            btnSalvarP.Text = "Salvar";
+            btnSalvarP.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -545,11 +525,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1291, 620);
             Controls.Add(panel3);
-            Controls.Add(dgbPedidos);
-            Controls.Add(label10);
-            Controls.Add(label9);
+            Controls.Add(dgvPedidos);
             Controls.Add(label8);
             Controls.Add(CadastrarNovoCliente);
             Controls.Add(panel1);
@@ -571,7 +550,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgbPedidos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();
             CadastrarNovoCliente.ResumeLayout(false);
             CadastrarNovoCliente.PerformLayout();
             ResumeLayout(false);
@@ -587,34 +566,32 @@
         private Button btnClientes;
         private Button btnEstoque;
         private Panel panel1;
-        private Button button2;
+        private Button btnServicosP;
         private Label label2;
         private PictureBox pictureBox2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button btnPedidosP;
+        private Button btnClientesP;
+        private Button btnEstoqueP;
         private Panel panel3;
         private PictureBox pictureBox3;
-        private TextBox txtBuscaPedidos;
-        private DataGridView dgbPedidos;
+        private TextBox txtBuscaP;
+        private DataGridView dgvPedidos;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
-        private Label label10;
-        private Label label9;
         private Label label8;
         private GroupBox CadastrarNovoCliente;
-        private ComboBox StatusPedidos;
+        private ComboBox StatusP;
         private Label label11;
-        private Button btnCancelarCliente;
-        private Button btnSalvarClientes;
+        private Button btnVoltarP;
+        private Button btnSalvarP;
         private Label label5;
         private Label label4;
         private Label label7;
-        private ComboBox TipodeServico;
+        private ComboBox TipodeServicoP;
         private Label label6;
-        private TextBox txtValorPedidos;
-        private ComboBox ClientePedidos;
+        private TextBox txtValorP;
+        private ComboBox ClienteP;
     }
 }
