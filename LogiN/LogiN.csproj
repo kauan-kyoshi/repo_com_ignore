@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ClienteConexao.cs" />
+    <Compile Remove="InserirBanco.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Remove="FormLogin.resx" />
   </ItemGroup>
 

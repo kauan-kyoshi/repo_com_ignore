@@ -1,79 +1,122 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
 
 namespace LogiN
 {
     public partial class TelaClientes : Form
     {
+        int idSelecionado = 0;
+        bool modoEdicao = false;
+
         public TelaClientes()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.Load += TelaClientes_Load;
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void TelaClientes_Load(object sender, EventArgs e)
         {
-            ConfigurarColunasClientes();
-            panelCadastroC.Visible = false;
+            panelCadastroCliente.Visible = false;
+            dgvClientes.Visible = true;
 
-            dgvClientes.Rows.Add("Maria Silva", "123.456.789-00", "(11) 98765-4321");
-            dgvClientes.Rows.Add("João Santos", "987.654.321-00", "(11) 91234-5678");
-            dgvClientes.Rows.Add("Ana Costa", "456.789.123-00", "(11) 99876-5432");
+            ConfigurarGrid();
+            CarregarClientes();
         }
 
-        private void ConfigurarColunasClientes()
+        // ================= GRID =================
+        private void ConfigurarGrid()
         {
-            dgvClientes.AutoGenerateColumns = false;
             dgvClientes.Columns.Clear();
+
+            dgvClientes.Columns.Add("Id", "Id");
+            dgvClientes.Columns["Id"].Visible = false;
 
             dgvClientes.Columns.Add("Nome", "Nome");
             dgvClientes.Columns.Add("CPF", "CPF");
             dgvClientes.Columns.Add("Telefone", "Telefone");
 
-            dgvClientes.BackgroundColor = Color.White;
-            dgvClientes.BorderStyle = BorderStyle.None;
-            dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvClientes.GridColor = Color.FromArgb(245, 245, 245);
-
-            dgvClientes.EnableHeadersVisualStyles = false;
-            dgvClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvClientes.ColumnHeadersHeight = 50;
-
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
-            {
-                BackColor = Color.White,
-                ForeColor = Color.Gray,
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                SelectionBackColor = Color.White
-            };
-            dgvClientes.ColumnHeadersDefaultCellStyle = headerStyle;
-
-            dgvClientes.RowHeadersVisible = false;
-            dgvClientes.RowTemplate.Height = 45;
-            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvClientes.AllowUserToResizeRows = false;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle
-            {
-                SelectionBackColor = Color.FromArgb(191, 165, 187),
-                SelectionForeColor = Color.Black,
-                Font = new Font("Segoe UI", 10)
-            };
-            dgvClientes.DefaultCellStyle = cellStyle;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.AllowUserToAddRows = false;
         }
 
-        private void btnNovoCliente_Click(object sender, EventArgs e)
+        // ================= CARREGAR =================
+        private void CarregarClientes()
         {
-            dgvClientes.Visible = false;
-            panelCadastroC.Visible = true;
-            panelCadastroC.BringToFront();
+            dgvClientes.Rows.Clear();
+
+            try
+            {
+                ConexaoC conexao = new ConexaoC();
+
+                using (MySqlConnection conn = conexao.Conectar())
+                {
+                    conn.Open();
+
+                    string sql = "SELECT * FROM Clientes";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        dgvClientes.Rows.Add(
+                            reader["Id"],
+                            reader["Nome"],
+                            reader["CPF"],
+                            reader["Telefone"]
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro REAL ao carregar:\n" + ex.ToString());
+            }
         }
 
-        private void btnSalvarCliente_Click(object sender, EventArgs e)
+        // ================= NOVO =================
+        private void btnNovoClienteC_Click(object sender, EventArgs e)
+        {
+            modoEdicao = false;
+
+            txtNomeC.Clear();
+            txtCPF.Clear();
+            txtTelefoneC.Clear();
+
+            dgvClientes.Visible = false;
+            panelCadastroCliente.Visible = true;
+            panelCadastroCliente.BringToFront();
+        }
+
+        // ================= EDITAR =================
+        private void btnEditarC_Click(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                modoEdicao = true;
+
+                idSelecionado = Convert.ToInt32(
+                    dgvClientes.SelectedRows[0].Cells["Id"].Value
+                );
+
+                txtNomeC.Text = dgvClientes.SelectedRows[0].Cells["Nome"].Value.ToString();
+                txtCPF.Text = dgvClientes.SelectedRows[0].Cells["CPF"].Value.ToString();
+                txtTelefoneC.Text = dgvClientes.SelectedRows[0].Cells["Telefone"].Value.ToString();
+
+                dgvClientes.Visible = false;
+                panelCadastroCliente.Visible = true;
+                panelCadastroCliente.BringToFront();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente!");
+            }
+        }
+
+        // ================= SALVAR =================
+        private void btnSalvarC_Click(object sender, EventArgs e)
         {
             string nome = txtNomeC.Text;
             string cpf = txtCPF.Text;
@@ -83,33 +126,103 @@ namespace LogiN
                 !string.IsNullOrWhiteSpace(cpf) &&
                 !string.IsNullOrWhiteSpace(telefone))
             {
-                dgvClientes.Rows.Add(nome, cpf, telefone);
+                try
+                {
+                    ConexaoC conexao = new ConexaoC();
 
-                txtNomeC.Clear();
-                txtCPF.Clear();
-                txtTelefoneC.Clear();
+                    using (MySqlConnection conn = conexao.Conectar())
+                    {
+                        conn.Open();
 
-                panelCadastroC.Visible = false;
-                dgvClientes.Visible = true;
+                        if (!modoEdicao)
+                        {
+                            string sql = "INSERT INTO Clientes (Nome, CPF, Telefone) VALUES (@nome, @cpf, @tel)";
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                            cmd.Parameters.AddWithValue("@nome", nome);
+                            cmd.Parameters.AddWithValue("@cpf", cpf);
+                            cmd.Parameters.AddWithValue("@tel", telefone);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            string sql = "UPDATE Clientes SET Nome=@nome, CPF=@cpf, Telefone=@tel WHERE Id=@id";
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                            cmd.Parameters.AddWithValue("@nome", nome);
+                            cmd.Parameters.AddWithValue("@cpf", cpf);
+                            cmd.Parameters.AddWithValue("@tel", telefone);
+                            cmd.Parameters.AddWithValue("@id", idSelecionado);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    panelCadastroCliente.Visible = false;
+                    dgvClientes.Visible = true;
+                    dgvClientes.BringToFront();
+
+                    CarregarClientes();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro REAL ao salvar:\n" + ex.ToString());
+                }
             }
             else
             {
-                MessageBox.Show("Preencha todos os campos!",
-                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha todos os campos!");
             }
         }
 
-        private void btnCancelarCliente_Click(object sender, EventArgs e)
+        // ================= EXCLUIR =================
+        private void btnExcluirC_Click(object sender, EventArgs e)
         {
-            txtNomeC.Clear();
-            txtCPF.Clear();
-            txtTelefoneC.Clear();
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int id = Convert.ToInt32(
+                        dgvClientes.SelectedRows[0].Cells["Id"].Value
+                    );
 
-            panelCadastroC.Visible = false;
-            dgvClientes.Visible = true;
+                    ConexaoC conexao = new ConexaoC();
+
+                    using (MySqlConnection conn = conexao.Conectar())
+                    {
+                        conn.Open();
+
+                        string sql = "DELETE FROM Clientes WHERE Id=@id";
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    CarregarClientes();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro REAL ao excluir:\n" + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente!");
+            }
         }
 
-        /*private void txtBuscaCliente_TextChanged(object sender, EventArgs e)
+        // ================= VOLTAR =================
+        private void btnVoltarC_Click(object sender, EventArgs e)
+        {
+            panelCadastroCliente.Visible = false;
+            dgvClientes.Visible = true;
+            dgvClientes.BringToFront();
+        }
+
+        // ================= BUSCA =================
+        private void txtBuscaC_TextChanged(object sender, EventArgs e)
         {
             string termo = txtBuscaC.Text.ToLower();
 
@@ -126,39 +239,25 @@ namespace LogiN
                     cpf.Contains(termo) ||
                     telefone.Contains(termo);
             }
-        }*/
-        private void btnSalvarClientes_Click(object sender, EventArgs e)
-        {
-            InserirBanco banco = new InserirBanco();
-            banco.Inserir(txtNomeC.Text, txtTelefoneC.Text, txtCPF.Text);
-
-
-
         }
 
-        private void panelCadastroCliente_Paint(object sender, PaintEventArgs e)
+        // ================= NAVEGAÇÃO =================
+        private void btnEstoqueC_Click(object sender, EventArgs e)
         {
-
-        }
-        private void btnServicos_Click(object sender, EventArgs e)
-        {
-            TelaPedidos tela = new TelaPedidos();
-            tela.Show();
+            new TelaEstoque().Show();
             this.Hide();
         }
 
-
-        private void lblCadastroClientes_Click(object sender, EventArgs e)
+        private void btnServicosC_Click(object sender, EventArgs e)
         {
-            TelaClientes tela = new TelaClientes();
-            tela.StartPosition = FormStartPosition.CenterScreen;
-            tela.Show();
-            this.Close();
+            new TelaServicos().Show();
+            this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPedidosC_Click(object sender, EventArgs e)
         {
-
+            new TelaPedidos().Show();
+            this.Hide();
         }
     }
 }

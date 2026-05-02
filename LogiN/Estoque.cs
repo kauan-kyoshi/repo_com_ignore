@@ -1,187 +1,260 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace LogiN
 {
-    public partial class TelaEstoque : System.Windows.Forms.Form
+    public partial class TelaEstoque : Form
     {
+        int idSelecionado = 0;
+        bool modoEdicao = false;
+
         public TelaEstoque()
         {
             InitializeComponent();
-            btnEstoqueE.BackColor = Color.FromArgb(191, 165, 187);
-            btnEstoqueE.ForeColor = Color.Black;
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.Load += TelaEstoque_Load;
+        }
 
-            ConfigurarColunas();
-
+        private void TelaEstoque_Load(object sender, EventArgs e)
+        {
             panelCadastroE.Visible = false;
+            dgvEstoque.Visible = true;
 
-            dataGridView1.Rows.Add("Tecido Algodão Branco", "25", "Tecido");
-            dataGridView1.Rows.Add("Tecido Jeans Azul", "15", "Tecido");
-            dataGridView1.Rows.Add("Linha Preta", "50", "Linha");
-            dataGridView1.Rows.Add("Botões Pretos (Pacote)", "8", "Aviamentos");
-            dataGridView1.Rows.Add("Zíper 20cm", "30", "Aviamentos");
-            dataGridView1.Rows.Add("Linha Azul", "40", "Linha");
-            dataGridView1.Rows.Add("Linha Verde", "35", "Linha");
-            dataGridView1.Rows.Add("Tecido Seda Vermelha", "12", "Tecido");
-            dataGridView1.Rows.Add("Tecido Linho Bege", "20", "Tecido");
-            dataGridView1.Rows.Add("Botões Metálicos (Pacote)", "15", "Aviamentos");
-            dataGridView1.Rows.Add("Zíper 60cm", "10", "Aviamentos");
-            dataGridView1.Rows.Add("Elástico Branco 2cm", "25", "Aviamentos");
-            dataGridView1.Rows.Add("Fita de Cetim Vermelha", "50", "Aviamentos");
-            dataGridView1.Rows.Add("Agulhas de Costura (Caixa)", "100", "Ferramentas");
-            dataGridView1.Rows.Add("Tesoura de Alfaiate", "5", "Ferramentas");
-            dataGridView1.Rows.Add("Linha Dourada", "18", "Linha");
-            dataGridView1.Rows.Add("Tecido Veludo Preto", "8", "Tecido");
+            ConfigurarGrid();
+            CarregarEstoque();
         }
 
-        private void ConfigurarColunas()
+        // ================= GRID =================
+        private void ConfigurarGrid()
         {
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.Columns.Clear();
+            dgvEstoque.Columns.Clear();
 
-            dataGridView1.Columns.Add("Nome", "Nome");
-            dataGridView1.Columns.Add("Quantidade", "Quantidade");
-            dataGridView1.Columns.Add("Categoria", "Categoria");
+            dgvEstoque.Columns.Add("Id", "Id");
+            dgvEstoque.Columns["Id"].Visible = false;
 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.GridColor = Color.FromArgb(245, 245, 245);
+            dgvEstoque.Columns.Add("Nome", "Nome");
+            dgvEstoque.Columns.Add("Quantidade", "Quantidade");
+            dgvEstoque.Columns.Add("Categoria", "Categoria");
 
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.ColumnHeadersHeight = 50;
-
-            DataGridViewCellStyle styleHeader = new DataGridViewCellStyle();
-            styleHeader.BackColor = Color.White;
-            styleHeader.ForeColor = Color.Gray;
-            styleHeader.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            styleHeader.SelectionBackColor = Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle = styleHeader;
-
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 45;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            DataGridViewCellStyle styleCell = new DataGridViewCellStyle();
-            styleCell.SelectionBackColor = Color.FromArgb(191, 165, 187);
-            styleCell.SelectionForeColor = Color.Black;
-            styleCell.Font = new Font("Segoe UI", 10);
-            dataGridView1.DefaultCellStyle = styleCell;
+            dgvEstoque.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEstoque.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEstoque.AllowUserToAddRows = false;
         }
 
-        private void btnAbrirCadastro_Click(object sender, EventArgs e)
+        // ================= CARREGAR =================
+        private void CarregarEstoque()
         {
-            dataGridView1.Visible = false;
-            panelCadastroE.Visible = true;
-            panelCadastroE.BringToFront();
-        }
+            dgvEstoque.Rows.Clear();
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            string nome = txtNomeItemE.Text;
-            int quantidade = (int)QuantidadeE.Value;
-            string categoria = cmbCategoriaE.SelectedItem?.ToString() ?? "";
-
-            if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(categoria))
+            try
             {
-                dataGridView1.Rows.Add(nome, quantidade.ToString(), categoria);
-                panelCadastroE.Visible = false;
-                dataGridView1.Visible = true;
+                ConexaoE conexao = new ConexaoE();
+
+                using (MySqlConnection conn = conexao.Conectar())
+                {
+                    conn.Open();
+
+                    string sql = "SELECT * FROM Estoque";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        dgvEstoque.Rows.Add(
+                            reader["Id"],
+                            reader["Nome"],
+                            reader["Quantidade"],
+                            reader["Categoria"]
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro REAL ao carregar:\n" + ex.ToString());
+            }
+        }
+
+        // ================= NOVO =================
+        private void btnAbrirCadastroE_Click(object sender, EventArgs e)
+        {
+            modoEdicao = false;
+
+            txtNomeItemE.Clear();
+            QuantidadeE.Value = 0;
+            cmbCategoriaE.SelectedIndex = -1;
+
+            dgvEstoque.Visible = false;
+            panelCadastroE.Visible = true;
+            panelCadastroE.BringToFront(); // 🔥 importante
+        }
+
+        // ================= EDITAR =================
+        private void btnEditarE_Click(object sender, EventArgs e)
+        {
+            if (dgvEstoque.SelectedRows.Count > 0)
+            {
+                modoEdicao = true;
+
+                idSelecionado = Convert.ToInt32(
+                    dgvEstoque.SelectedRows[0].Cells["Id"].Value
+                );
+
+                txtNomeItemE.Text = dgvEstoque.SelectedRows[0].Cells["Nome"].Value.ToString();
+                QuantidadeE.Value = Convert.ToInt32(dgvEstoque.SelectedRows[0].Cells["Quantidade"].Value);
+                cmbCategoriaE.Text = dgvEstoque.SelectedRows[0].Cells["Categoria"].Value.ToString();
+
+                dgvEstoque.Visible = false;
+                panelCadastroE.Visible = true;
+                panelCadastroE.BringToFront(); // 🔥 importante
             }
             else
             {
-                MessageBox.Show("Preencha todos os campos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um item!");
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        // ================= SALVAR =================
+        private void btnSalvarE_Click(object sender, EventArgs e)
+        {
+            string nome = txtNomeItemE.Text;
+            int quantidade = (int)QuantidadeE.Value;
+            string categoria = cmbCategoriaE.Text;
+
+            if (!string.IsNullOrWhiteSpace(nome) &&
+                !string.IsNullOrWhiteSpace(categoria))
+            {
+                try
+                {
+                    ConexaoE conexao = new ConexaoE();
+
+                    using (MySqlConnection conn = conexao.Conectar())
+                    {
+                        conn.Open();
+
+                        if (!modoEdicao)
+                        {
+                            string sql = "INSERT INTO Estoque (Nome, Quantidade, Categoria) VALUES (@nome, @qtd, @cat)";
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                            cmd.Parameters.AddWithValue("@nome", nome);
+                            cmd.Parameters.AddWithValue("@qtd", quantidade);
+                            cmd.Parameters.AddWithValue("@cat", categoria);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            string sql = "UPDATE Estoque SET Nome=@nome, Quantidade=@qtd, Categoria=@cat WHERE Id=@id";
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                            cmd.Parameters.AddWithValue("@nome", nome);
+                            cmd.Parameters.AddWithValue("@qtd", quantidade);
+                            cmd.Parameters.AddWithValue("@cat", categoria);
+                            cmd.Parameters.AddWithValue("@id", idSelecionado);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    panelCadastroE.Visible = false;
+                    dgvEstoque.Visible = true;
+                    dgvEstoque.BringToFront();
+
+                    CarregarEstoque();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro REAL ao salvar:\n" + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha todos os campos!");
+            }
+        }
+
+        // ================= EXCLUIR =================
+        private void btnExcluirE_Click(object sender, EventArgs e)
+        {
+            if (dgvEstoque.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int id = Convert.ToInt32(
+                        dgvEstoque.SelectedRows[0].Cells["Id"].Value
+                    );
+
+                    ConexaoE conexao = new ConexaoE();
+
+                    using (MySqlConnection conn = conexao.Conectar())
+                    {
+                        conn.Open();
+
+                        string sql = "DELETE FROM Estoque WHERE Id=@id";
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    CarregarEstoque();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro REAL ao excluir:\n" + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um item!");
+            }
+        }
+
+        // ================= VOLTAR =================
+        private void btnVoltarE_Click(object sender, EventArgs e)
         {
             panelCadastroE.Visible = false;
-            dataGridView1.Visible = true;
+            dgvEstoque.Visible = true;
+            dgvEstoque.BringToFront(); // 🔥 importante
         }
 
-        private void TelaEstoque_FormClosed(object sender, FormClosedEventArgs e)
+        // ================= BUSCA =================
+        private void txtBuscaE_TextChanged(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
+            string termo = txtBuscaE.Text.ToLower();
 
-        private void txtBusca_TextChanged(object sender, EventArgs e)
-        {
-            string termoBusca = txtBuscaE.Text.ToLower();
-
-            foreach (DataGridViewRow linha in dataGridView1.Rows)
+            foreach (DataGridViewRow linha in dgvEstoque.Rows)
             {
                 if (linha.IsNewRow) continue;
 
                 string nome = linha.Cells["Nome"].Value?.ToString().ToLower() ?? "";
-                string quantidade = linha.Cells["Quantidade"].Value?.ToString().ToLower() ?? "";
                 string categoria = linha.Cells["Categoria"].Value?.ToString().ToLower() ?? "";
 
-                bool corresponde = nome.Contains(termoBusca)
-                                   || quantidade.Contains(termoBusca)
-                                   || categoria.Contains(termoBusca);
-
-                linha.Visible = corresponde;
+                linha.Visible =
+                    nome.Contains(termo) ||
+                    categoria.Contains(termo);
             }
         }
 
-        private void btnSalvarEstoque_Click(object sender, EventArgs e)
+        // ================= NAVEGAÇÃO =================
+        private void btnClientesE_Click(object sender, EventArgs e)
         {
-            string nome = txtNomeItemE.Text;
-            int quantidade = (int)QuantidadeE.Value;
-            string categoria = cmbCategoriaE.SelectedItem?.ToString() ?? "";
-
-            if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(categoria))
-            {
-                dataGridView1.Rows.Add(nome, quantidade.ToString(), categoria);
-
-                txtNomeItemE.Clear();
-                QuantidadeE.Value = 0;
-                cmbCategoriaE.SelectedIndex = -1;
-                panelCadastroE.Visible = false;
-                dataGridView1.Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("Preencha todos os campos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnCancelarEstoque_Click(object sender, EventArgs e)
-        {
-            txtNomeItemE.Clear();
-            QuantidadeE.Value = 0;
-            cmbCategoriaE.SelectedIndex = -1;
-            panelCadastroE.Visible = false;
-            dataGridView1.Visible = true;
-        }
-
-        private void btnClientes_Click_1(object sender, EventArgs e)
-        {
-            TelaPedidos tela = new TelaPedidos();
-            tela.Show();
-            this.Hide();
-        }
-
-        private void btnServicos_Click(object sender, EventArgs e)
-        {
-            TelaPedidos tela = new TelaPedidos();
-            tela.StartPosition = FormStartPosition.CenterScreen;
-            tela.Show();
+            new TelaClientes().Show();
             this.Hide();
         }
 
         private void btnServicosE_Click(object sender, EventArgs e)
         {
-            TelaServicos tela = new TelaServicos();
-            tela.Show();
+            new TelaServicos().Show();
+            this.Hide();
+        }
+
+        private void btnPedidosE_Click(object sender, EventArgs e)
+        {
+            new TelaPedidos().Show();
             this.Hide();
         }
     }
 }
-
