@@ -11,7 +11,7 @@ namespace LogiN
         int idSelecionado = 0;
         bool modoEdicao = false;
 
-        string conexao = "server=localhost;database=;uid=root;pwd=;";
+        string conexao = "server=localhost;database=projeto;uid=root;pwd=;";
 
         public TelaPedidos()
         {

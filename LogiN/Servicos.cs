@@ -276,5 +276,11 @@ namespace LogiN
             new TelaPedidos().Show();
             this.Hide();
         }
+
+        private void btnVoltarS_Click_1(object sender, EventArgs e)
+        {
+            panelCadastroS.Visible = false;
+            dgvServicos.Visible = true;
+        }
     }
 }
