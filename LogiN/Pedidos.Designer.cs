@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPedidos));
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             button1 = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -299,47 +299,46 @@
             txtBuscaP.TabIndex = 0;
             txtBuscaP.TextChanged += txtBuscaP_TextChanged;
             // 
-            // dgvPedidos
-            // 
+            // ================= DATAGRID PEDIDOS =================
             dgvPedidos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new Font("Century Gothic", 25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dgvPedidos.AllowUserToAddRows = false;
+
+            DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(191, 165, 187);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+
+            dgvPedidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+
             dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPedidos.BackgroundColor = Color.White;
             dgvPedidos.BorderStyle = BorderStyle.None;
-            dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Century Gothic", 9F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dgvPedidos.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Window;
-            dataGridViewCellStyle9.Font = new Font("Century Gothic", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.MediumAquamarine;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            dgvPedidos.DefaultCellStyle = dataGridViewCellStyle9;
+
             dgvPedidos.EnableHeadersVisualStyles = false;
-            dgvPedidos.Location = new Point(393, 612);
-            dgvPedidos.Name = "dgvPedidos";
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+
+            dgvPedidos.DefaultCellStyle.BackColor = Color.White;
+            dgvPedidos.DefaultCellStyle.ForeColor = Color.Black;
+
+            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(191, 165, 187);
+            dgvPedidos.DefaultCellStyle.SelectionForeColor = Color.Black;
+
             dgvPedidos.RowHeadersVisible = false;
-            dgvPedidos.RowHeadersWidth = 45;
-            dgvPedidos.RowTemplate.Height = 40;
+
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPedidos.Size = new Size(1026, 198);
-            dgvPedidos.TabIndex = 14;
+            dgvPedidos.MultiSelect = false;
+            dgvPedidos.ReadOnly = true;
+
+            dgvPedidos.RowTemplate.Height = 28;
+
+            dgvPedidos.GridColor = Color.White;
+
+            dgvPedidos.ClearSelection();
             // 
             // label8
             // 
@@ -415,7 +414,6 @@
             // cmbStatusP
             // 
             cmbStatusP.FormattingEnabled = true;
-            cmbStatusP.Items.AddRange(new object[] {});
             cmbStatusP.Location = new Point(558, 197);
             cmbStatusP.Name = "cmbStatusP";
             cmbStatusP.Size = new Size(436, 29);

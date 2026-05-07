@@ -11,7 +11,7 @@ namespace LogiN
         int idSelecionado = 0;
         bool modoEdicao = false;
 
-        string conexao = "server=localhost;database=Projeto;uid=root;pwd=;";
+        string conexao = "server=localhost;database=;uid=root;pwd=;";
 
         public TelaPedidos()
         {
@@ -101,22 +101,60 @@ namespace LogiN
         {
             dgvPedidos.EnableHeadersVisualStyles = false;
 
+            Color lilas = Color.FromArgb(210, 227, 252);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionBackColor = lilas;
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
+
             dgvPedidos.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
             dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
-            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(191, 165, 187);
+            dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            dgvPedidos.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(250, 210, 207);
+
             dgvPedidos.DefaultCellStyle.SelectionForeColor = Color.Black;
 
+            dgvPedidos.DefaultCellStyle.BackColor = Color.White;
+            dgvPedidos.DefaultCellStyle.ForeColor = Color.Black;
+
+            dgvPedidos.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
+
             dgvPedidos.RowHeadersVisible = false;
-            dgvPedidos.BorderStyle = BorderStyle.None;
+
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.GridColor = Color.White;
 
-            dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPedidos.MultiSelect = false;
             dgvPedidos.ReadOnly = true;
+
+            // 🔥 remove linha branca vazia
             dgvPedidos.AllowUserToAddRows = false;
+
+            dgvPedidos.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvPedidos.MultiSelect = false;
+
+            dgvPedidos.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            // 🔥 CORREÇÃO DO TEXTO ESCONDIDO
+            dgvPedidos.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.None;
+
+            dgvPedidos.RowTemplate.Height = 32;
+
+            dgvPedidos.DefaultCellStyle.Padding =
+                new Padding(4, 2, 4, 2);
+
+            // 🔥 scroll funcionando
+            dgvPedidos.ScrollBars = ScrollBars.Vertical;
 
             dgvPedidos.Columns["Id"].Visible = false;
 
