@@ -436,6 +436,7 @@
             cmbStatusP.Name = "cmbStatusP";
             cmbStatusP.Size = new Size(382, 25);
             cmbStatusP.TabIndex = 12;
+            cmbStatusP.KeyPress += cmbStatusP_KeyPress;
             // 
             // cmbTipodeServicoP
             // 
@@ -447,6 +448,7 @@
             cmbTipodeServicoP.Size = new Size(382, 25);
             cmbTipodeServicoP.TabIndex = 13;
             cmbTipodeServicoP.SelectedIndexChanged += cmbTipodeServicoP_SelectedIndexChanged;
+            cmbTipodeServicoP.KeyPress += cmbTipodeServicoP_KeyPress;
             // 
             // cmbClienteP
             // 
@@ -457,6 +459,7 @@
             cmbClienteP.Name = "cmbClienteP";
             cmbClienteP.Size = new Size(382, 25);
             cmbClienteP.TabIndex = 14;
+            cmbClienteP.KeyPress += cmbClienteP_KeyPress;
             // 
             // txtValorP
             // 
@@ -464,6 +467,7 @@
             txtValorP.Name = "txtValorP";
             txtValorP.Size = new Size(382, 25);
             txtValorP.TabIndex = 15;
+            txtValorP.KeyPress += txtValorP_KeyPress;
             // 
             // CadastrarNovoCliente
             // 

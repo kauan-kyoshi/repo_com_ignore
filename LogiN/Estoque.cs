@@ -222,5 +222,27 @@ namespace LogiN
             new TelaPedidos().Show();
             this.Hide();
         }
+
+        ////====== Codigo para não permitir numeros, apenas letras =======
+        private void txtNomeItemE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        //====== Codigo para não permitir numeros, apenas letras =======
+        private void cmbCategoriaE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+            !char.IsWhiteSpace(e.KeyChar) &&
+            e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

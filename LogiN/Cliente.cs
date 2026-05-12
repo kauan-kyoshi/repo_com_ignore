@@ -124,6 +124,12 @@ namespace LogiN
             string cpf = txtCPF.Text;
             string telefone = txtTelefoneC.Text;
 
+            if (txtCPF.Text.Length < 11 || txtTelefoneC.Text.Length < 11)
+            {
+                MessageBox.Show("CPF ou Telefone inválidos");
+                return;
+            }
+
             if (!string.IsNullOrWhiteSpace(nome) &&
                 !string.IsNullOrWhiteSpace(cpf) &&
                 !string.IsNullOrWhiteSpace(telefone))
@@ -160,6 +166,9 @@ namespace LogiN
 
                         panelCadastroCliente.Visible = false;
                         dgvClientes.Visible = true;
+
+                        //para medir a quantidade de caracter 
+
 
                         CarregarClientes();
                     }
@@ -254,6 +263,32 @@ namespace LogiN
         {
             new TelaPedidos().Show();
             this.Hide();
+        }
+
+
+        private void txtCPF_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //====== Codigo para não permitir numeros, apenas letras =======
+        private void txtNomeC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        //====== Codigo para não permitir letras, apenas numeros =======
+        private void txtTelefoneC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+            e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

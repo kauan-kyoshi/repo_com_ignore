@@ -136,7 +136,7 @@ namespace LogiN
                 idSelecionado = Convert.ToInt32(dgvServicos.CurrentRow.Cells["id_cadastro_servico"].Value);
 
                 cmbTipodeServicoS.Text = dgvServicos.CurrentRow.Cells["nome_servico"].Value.ToString();
-                txtValorS.Text = dgvServicos.CurrentRow.Cells["Valor"].Value.ToString();
+                txtValorS.Text = dgvServicos.CurrentRow.Cells["valor"].Value.ToString();
 
                 panelCadastroS.Visible = true;
                 panelCadastroS.BringToFront();
@@ -176,7 +176,7 @@ namespace LogiN
 
                     if (!modoEdicao)
                     {
-                        string sql = "INSERT INTO cadastro_servico (nome_servico, Valor) VALUES (@t,@v)";
+                        string sql = "INSERT INTO cadastro_servico(nome_servico, Valor) VALUES (@t,@v)";
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                         cmd.Parameters.AddWithValue("@t", tipo);
@@ -186,7 +186,7 @@ namespace LogiN
                     }
                     else
                     {
-                        string sql = "UPDATE cadastro_servicos SET nome_servico=@t, Valor=@v WHERE Id_cadastro_servico=@id";
+                        string sql = "UPDATE cadastro_servico SET nome_servico=@t, Valor=@v WHERE Id_cadastro_servico=@id";
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                         cmd.Parameters.AddWithValue("@t", tipo);
@@ -281,6 +281,28 @@ namespace LogiN
         {
             panelCadastroS.Visible = false;
             dgvServicos.Visible = true;
+        }
+
+        //====== Codigo para não permitir numeros, apenas letras =======
+        private void cmbTipodeServicoS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+            !char.IsWhiteSpace(e.KeyChar) &&
+            e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        //====== Codigo para não permitir letras, apenas numeros =======
+        private void txtValorS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+            e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }
