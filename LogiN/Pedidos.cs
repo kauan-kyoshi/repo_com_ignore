@@ -178,53 +178,89 @@ namespace LogiN
 
         private void btnSalvarP_Click(object sender, EventArgs e)
         {
-            int clienteId = Convert.ToInt32(cmbClienteP.SelectedValue);
-            int servicoId = Convert.ToInt32(cmbTipodeServicoP.SelectedValue);
-            string status = cmbStatusP.Text;
-
-            decimal valor;
-            if (!decimal.TryParse(txtValorP.Text.Replace(",", "."),
-                System.Globalization.NumberStyles.Any,
-                System.Globalization.CultureInfo.InvariantCulture,
-                out valor))
+            try
             {
-                MessageBox.Show("Valor inválido!");
-                return;
-            }
+                int clienteId = Convert.ToInt32(cmbClienteP.SelectedValue);
+                int servicoId = Convert.ToInt32(cmbTipodeServicoP.SelectedValue);
+                string status = cmbStatusP.Text;
 
-            using (MySqlConnection conn = new MySqlConnection(conexao))
+                decimal valor;
+
+                if (!decimal.TryParse(
+                    txtValorP.Text.Replace(",", "."),
+                    System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    out valor))
+                {
+                    MessageBox.Show("Valor inválido!");
+                    return;
+                }
+
+                using (MySqlConnection conn =
+                    new MySqlConnection(conexao))
+                {
+                    conn.Open();
+
+                    // INSERT
+                    if (!modoEdicao)
+                    {
+                        string sql =
+                            "INSERT INTO Pedidos_servicos " +
+                            "(id_cliente, id_servico, Valor, Status_pedido) " +
+                            "VALUES (@c,@s,@v,@st)";
+
+                        MySqlCommand cmd =
+                            new MySqlCommand(sql, conn);
+
+                        cmd.Parameters.AddWithValue("@c", clienteId);
+                        cmd.Parameters.AddWithValue("@s", servicoId);
+                        cmd.Parameters.AddWithValue("@v", valor);
+                        cmd.Parameters.AddWithValue("@st", status);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Pedido cadastrado!");
+                    }
+
+                    // UPDATE
+                    else
+                    {
+                        string sql =
+                            "UPDATE Pedidos_servicos " +
+                            "SET id_cliente=@c, " +
+                            "id_servico=@s, " +
+                            "Valor=@v, " +
+                            "Status_pedido=@st " +
+                            "WHERE Id_pedido_servico=@id";
+
+                        MySqlCommand cmd =
+                            new MySqlCommand(sql, conn);
+
+                        cmd.Parameters.AddWithValue("@c", clienteId);
+                        cmd.Parameters.AddWithValue("@s", servicoId);
+                        cmd.Parameters.AddWithValue("@v", valor);
+                        cmd.Parameters.AddWithValue("@st", status);
+                        cmd.Parameters.AddWithValue("@id", idSelecionado);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Pedido atualizado!");
+
+                        modoEdicao = false;
+                    }
+                }
+
+                CarregarPedidos();
+
+                dgvPedidos.ClearSelection();
+            }
+            catch (Exception ex)
             {
-                conn.Open();
-
-                if (!modoEdicao)
-                {
-                    string sql = "INSERT INTO Pedidos_servicos (id_cliente, id_servico, Valor, Status_pedido) VALUES (@c,@s,@v,@st)";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                    cmd.Parameters.AddWithValue("@c", clienteId);
-                    cmd.Parameters.AddWithValue("@s", servicoId);
-                    cmd.Parameters.AddWithValue("@v", valor);
-                    cmd.Parameters.AddWithValue("@st", status);
-
-                    cmd.ExecuteNonQuery();
-                }
-                else
-                {
-                    string sql = "UPDATE Pedidos_servicos SET id_cliente=@c, id_servico=@s, Valor=@v, Status_pedido=@st WHERE Id_pedido_servico=@id";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                    cmd.Parameters.AddWithValue("@c", clienteId);
-                    cmd.Parameters.AddWithValue("@s", servicoId);
-                    cmd.Parameters.AddWithValue("@v", valor);
-                    cmd.Parameters.AddWithValue("@st", status);
-                    cmd.Parameters.AddWithValue("@id", idSelecionado);
-
-                    cmd.ExecuteNonQuery();
-                }
+                MessageBox.Show(
+                    "Erro ao salvar:\n\n" + ex.ToString());
             }
-
-            CarregarPedidos();
         }
+
 
         private void btnExcluirP_Click(object sender, EventArgs e)
         {
@@ -274,7 +310,6 @@ namespace LogiN
             this.Hide();
         }
 
-        //====== Codigo para não permitir letras, apenas numeros =======
         private void txtValorP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) &&
@@ -284,7 +319,6 @@ namespace LogiN
             }
         }
 
-        //====== Codigo para não permitir numeros, apenas letras =======
         private void cmbClienteP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) &&
@@ -313,6 +347,38 @@ namespace LogiN
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnEditarP_Click(object sender, EventArgs e)
+        {
+            if (dgvPedidos.CurrentRow != null)
+            {
+                modoEdicao = true;
+
+                idSelecionado = Convert.ToInt32(
+                    dgvPedidos.CurrentRow.Cells["Id_pedido_servico"].Value);
+
+                // CLIENTE
+                cmbClienteP.Text =
+                    dgvPedidos.CurrentRow.Cells["Clientes"].Value.ToString();
+
+                // SERVIÇO
+                cmbTipodeServicoP.Text =
+                    dgvPedidos.CurrentRow.Cells["cadastro_servico"].Value.ToString();
+
+                // VALOR
+                txtValorP.Text =
+                    dgvPedidos.CurrentRow.Cells["Valor"].Value.ToString();
+
+                // STATUS
+                cmbStatusP.Text =
+                    dgvPedidos.CurrentRow.Cells["Status_pedido"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um pedido!");
+            }
+        
         }
     }
 }
