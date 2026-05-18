@@ -73,9 +73,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(649, 33);
+            pictureBox2.Location = new Point(568, 25);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(271, 183);
+            pictureBox2.Size = new Size(237, 137);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -84,53 +85,56 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(621, 323);
+            label1.Location = new Point(543, 242);
             label1.Name = "label1";
-            label1.Size = new Size(70, 21);
+            label1.Size = new Size(58, 19);
             label1.TabIndex = 2;
             label1.Text = "Usuario";
             // 
             // txtUsuarioL
             // 
-            txtUsuarioL.Location = new Point(621, 347);
+            txtUsuarioL.Location = new Point(543, 260);
+            txtUsuarioL.Margin = new Padding(3, 2, 3, 2);
             txtUsuarioL.Multiline = true;
             txtUsuarioL.Name = "txtUsuarioL";
-            txtUsuarioL.Size = new Size(331, 33);
+            txtUsuarioL.Size = new Size(290, 26);
             txtUsuarioL.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(731, 267);
+            label2.Location = new Point(640, 200);
             label2.Name = "label2";
-            label2.Size = new Size(103, 21);
+            label2.Size = new Size(87, 19);
             label2.TabIndex = 4;
             label2.Text = "Bem vinda!";
             // 
             // txtSenhaL
             // 
-            txtSenhaL.Location = new Point(621, 455);
+            txtSenhaL.Location = new Point(543, 341);
+            txtSenhaL.Margin = new Padding(3, 2, 3, 2);
             txtSenhaL.Multiline = true;
             txtSenhaL.Name = "txtSenhaL";
-            txtSenhaL.Size = new Size(331, 33);
+            txtSenhaL.Size = new Size(290, 26);
             txtSenhaL.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(621, 431);
+            label3.Location = new Point(543, 323);
             label3.Name = "label3";
-            label3.Size = new Size(61, 21);
+            label3.Size = new Size(53, 19);
             label3.TabIndex = 5;
             label3.Text = "Senha";
             // 
             // btnEntrarL
             // 
-            btnEntrarL.Location = new Point(621, 581);
+            btnEntrarL.Location = new Point(543, 436);
+            btnEntrarL.Margin = new Padding(3, 2, 3, 2);
             btnEntrarL.Name = "btnEntrarL";
-            btnEntrarL.Size = new Size(144, 37);
+            btnEntrarL.Size = new Size(126, 28);
             btnEntrarL.TabIndex = 5;
             btnEntrarL.Text = "Entrar";
             btnEntrarL.UseVisualStyleBackColor = true;
@@ -140,27 +144,29 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 8F);
-            label4.Location = new Point(937, 720);
+            label4.Location = new Point(820, 540);
             label4.Name = "label4";
-            label4.Size = new Size(111, 19);
+            label4.Size = new Size(89, 16);
             label4.TabIndex = 8;
             label4.Text = "by  ASTER TECH";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-4, -8);
+            pictureBox1.Location = new Point(-4, -6);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(497, 768);
+            pictureBox1.Size = new Size(435, 576);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
             // btncadastraL
             // 
-            btncadastraL.Location = new Point(808, 581);
+            btncadastraL.Location = new Point(707, 436);
+            btncadastraL.Margin = new Padding(3, 2, 3, 2);
             btncadastraL.Name = "btncadastraL";
-            btncadastraL.Size = new Size(144, 37);
+            btncadastraL.Size = new Size(126, 28);
             btncadastraL.TabIndex = 4;
             btncadastraL.Text = "Cadastrar";
             btncadastraL.UseVisualStyleBackColor = true;
@@ -170,35 +176,34 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 9.75F);
-            label9.Location = new Point(101, 493);
+            label9.Location = new Point(88, 370);
             label9.Name = "label9";
-            label9.Size = new Size(66, 21);
+            label9.Size = new Size(51, 17);
             label9.TabIndex = 28;
             label9.Text = "Senha:";
             // 
             // txtSenhaCadastroL
             // 
-            txtSenhaCadastroL.Location = new Point(100, 520);
-            txtSenhaCadastroL.Margin = new Padding(3, 4, 3, 4);
+            txtSenhaCadastroL.Location = new Point(88, 390);
             txtSenhaCadastroL.Name = "txtSenhaCadastroL";
-            txtSenhaCadastroL.Size = new Size(353, 27);
+            txtSenhaCadastroL.Size = new Size(309, 23);
             txtSenhaCadastroL.TabIndex = 3;
             // 
             // txtNomeCadastroL
             // 
-            txtNomeCadastroL.Location = new Point(98, 354);
-            txtNomeCadastroL.Margin = new Padding(3, 4, 3, 4);
+            txtNomeCadastroL.Location = new Point(86, 266);
             txtNomeCadastroL.Name = "txtNomeCadastroL";
-            txtNomeCadastroL.Size = new Size(354, 27);
+            txtNomeCadastroL.Size = new Size(310, 23);
             txtNomeCadastroL.TabIndex = 1;
             // 
             // btnSalvarCadastroL
             // 
             btnSalvarCadastroL.BackColor = Color.White;
             btnSalvarCadastroL.Font = new Font("Century Gothic", 9F);
-            btnSalvarCadastroL.Location = new Point(101, 611);
+            btnSalvarCadastroL.Location = new Point(88, 458);
+            btnSalvarCadastroL.Margin = new Padding(3, 2, 3, 2);
             btnSalvarCadastroL.Name = "btnSalvarCadastroL";
-            btnSalvarCadastroL.Size = new Size(144, 35);
+            btnSalvarCadastroL.Size = new Size(126, 26);
             btnSalvarCadastroL.TabIndex = 4;
             btnSalvarCadastroL.Text = "Salvar";
             btnSalvarCadastroL.UseVisualStyleBackColor = false;
@@ -208,9 +213,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 15F, FontStyle.Bold);
-            label7.Location = new Point(113, 237);
+            label7.Location = new Point(99, 178);
             label7.Name = "label7";
-            label7.Size = new Size(325, 29);
+            label7.Size = new Size(260, 23);
             label7.TabIndex = 2;
             label7.Text = "Cadastre-se nove usuário";
             // 
@@ -218,15 +223,14 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 9.75F);
-            label6.Location = new Point(100, 325);
+            label6.Location = new Point(88, 244);
             label6.Name = "label6";
-            label6.Size = new Size(65, 21);
+            label6.Size = new Size(52, 17);
             label6.TabIndex = 1;
             label6.Text = "Nome:";
             // 
             // PanelCadastroUsuarioL
             // 
-            PanelCadastroUsuarioL.Controls.Add(panelRedefinirSenhaL);
             PanelCadastroUsuarioL.Controls.Add(btnVoltarL);
             PanelCadastroUsuarioL.Controls.Add(label12);
             PanelCadastroUsuarioL.Controls.Add(label9);
@@ -238,10 +242,9 @@
             PanelCadastroUsuarioL.Controls.Add(label5);
             PanelCadastroUsuarioL.Controls.Add(txtCpfCadastroL);
             PanelCadastroUsuarioL.Controls.Add(pictureBox3);
-            PanelCadastroUsuarioL.Location = new Point(497, 2);
-            PanelCadastroUsuarioL.Margin = new Padding(3, 4, 3, 4);
+            PanelCadastroUsuarioL.Location = new Point(437, -4);
             PanelCadastroUsuarioL.Name = "PanelCadastroUsuarioL";
-            PanelCadastroUsuarioL.Size = new Size(551, 746);
+            PanelCadastroUsuarioL.Size = new Size(482, 560);
             PanelCadastroUsuarioL.TabIndex = 11;
             PanelCadastroUsuarioL.Visible = false;
             // 
@@ -249,9 +252,10 @@
             // 
             btnVoltarL.BackColor = Color.White;
             btnVoltarL.Font = new Font("Century Gothic", 9F);
-            btnVoltarL.Location = new Point(308, 611);
+            btnVoltarL.Location = new Point(270, 458);
+            btnVoltarL.Margin = new Padding(3, 2, 3, 2);
             btnVoltarL.Name = "btnVoltarL";
-            btnVoltarL.Size = new Size(144, 35);
+            btnVoltarL.Size = new Size(126, 26);
             btnVoltarL.TabIndex = 31;
             btnVoltarL.Text = "Voltar";
             btnVoltarL.UseVisualStyleBackColor = false;
@@ -261,9 +265,9 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Century Gothic", 8F);
-            label12.Location = new Point(426, 719);
+            label12.Location = new Point(373, 539);
             label12.Name = "label12";
-            label12.Size = new Size(111, 19);
+            label12.Size = new Size(89, 16);
             label12.TabIndex = 30;
             label12.Text = "by  ASTER TECH";
             // 
@@ -271,26 +275,26 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 9.75F);
-            label5.Location = new Point(100, 401);
+            label5.Location = new Point(88, 301);
             label5.Name = "label5";
-            label5.Size = new Size(47, 21);
+            label5.Size = new Size(37, 17);
             label5.TabIndex = 1;
             label5.Text = "CPF:";
             // 
             // txtCpfCadastroL
             // 
-            txtCpfCadastroL.Location = new Point(100, 428);
-            txtCpfCadastroL.Margin = new Padding(3, 4, 3, 4);
+            txtCpfCadastroL.Location = new Point(88, 321);
             txtCpfCadastroL.Name = "txtCpfCadastroL";
-            txtCpfCadastroL.Size = new Size(353, 27);
+            txtCpfCadastroL.Size = new Size(309, 23);
             txtCpfCadastroL.TabIndex = 2;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(142, 32);
+            pictureBox3.Location = new Point(124, 24);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(271, 183);
+            pictureBox3.Size = new Size(237, 137);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
@@ -306,10 +310,9 @@
             panelRedefinirSenhaL.Controls.Add(txtSenhaRedefinirL);
             panelRedefinirSenhaL.Controls.Add(btnRedefinirSalvarL);
             panelRedefinirSenhaL.Controls.Add(txtCpfRedefinirL);
-            panelRedefinirSenhaL.Location = new Point(2, 0);
-            panelRedefinirSenhaL.Margin = new Padding(3, 4, 3, 4);
+            panelRedefinirSenhaL.Location = new Point(434, -1);
             panelRedefinirSenhaL.Name = "panelRedefinirSenhaL";
-            panelRedefinirSenhaL.Size = new Size(551, 746);
+            panelRedefinirSenhaL.Size = new Size(482, 560);
             panelRedefinirSenhaL.TabIndex = 12;
             panelRedefinirSenhaL.Visible = false;
             // 
@@ -317,10 +320,9 @@
             // 
             btnVoltarLogin.BackColor = Color.White;
             btnVoltarLogin.Font = new Font("Century Gothic", 9F);
-            btnVoltarLogin.Location = new Point(299, 580);
-            btnVoltarLogin.Margin = new Padding(3, 4, 3, 4);
+            btnVoltarLogin.Location = new Point(262, 435);
             btnVoltarLogin.Name = "btnVoltarLogin";
-            btnVoltarLogin.Size = new Size(144, 35);
+            btnVoltarLogin.Size = new Size(126, 26);
             btnVoltarLogin.TabIndex = 33;
             btnVoltarLogin.Text = "Voltar";
             btnVoltarLogin.UseVisualStyleBackColor = false;
@@ -330,18 +332,19 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 15F, FontStyle.Bold);
-            label8.Location = new Point(145, 237);
+            label8.Location = new Point(127, 178);
             label8.Name = "label8";
-            label8.Size = new Size(262, 29);
+            label8.Size = new Size(209, 23);
             label8.TabIndex = 32;
             label8.Text = "Redefina sua Senha ";
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(142, 26);
+            pictureBox4.Location = new Point(124, 20);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(271, 183);
+            pictureBox4.Size = new Size(237, 137);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 31;
             pictureBox4.TabStop = false;
@@ -350,9 +353,9 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Century Gothic", 8F);
-            label14.Location = new Point(429, 719);
+            label14.Location = new Point(375, 539);
             label14.Name = "label14";
-            label14.Size = new Size(111, 19);
+            label14.Size = new Size(89, 16);
             label14.TabIndex = 11;
             label14.Text = "by  ASTER TECH";
             // 
@@ -360,9 +363,9 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Century Gothic", 9F);
-            label13.Location = new Point(111, 461);
+            label13.Location = new Point(97, 346);
             label13.Name = "label13";
-            label13.Size = new Size(99, 20);
+            label13.Size = new Size(81, 17);
             label13.TabIndex = 9;
             label13.Text = "Nova Senha";
             // 
@@ -370,28 +373,26 @@
             // 
             l.AutoSize = true;
             l.Font = new Font("Century Gothic", 9F);
-            l.Location = new Point(113, 357);
+            l.Location = new Point(99, 268);
             l.Name = "l";
-            l.Size = new Size(37, 20);
+            l.Size = new Size(30, 17);
             l.TabIndex = 8;
             l.Text = "CPF";
             // 
             // txtSenhaRedefinirL
             // 
-            txtSenhaRedefinirL.Location = new Point(111, 492);
-            txtSenhaRedefinirL.Margin = new Padding(3, 4, 3, 4);
+            txtSenhaRedefinirL.Location = new Point(97, 369);
             txtSenhaRedefinirL.Name = "txtSenhaRedefinirL";
-            txtSenhaRedefinirL.Size = new Size(331, 27);
+            txtSenhaRedefinirL.Size = new Size(290, 23);
             txtSenhaRedefinirL.TabIndex = 2;
             // 
             // btnRedefinirSalvarL
             // 
             btnRedefinirSalvarL.BackColor = Color.White;
             btnRedefinirSalvarL.Font = new Font("Century Gothic", 9F);
-            btnRedefinirSalvarL.Location = new Point(111, 580);
-            btnRedefinirSalvarL.Margin = new Padding(3, 4, 3, 4);
+            btnRedefinirSalvarL.Location = new Point(97, 435);
             btnRedefinirSalvarL.Name = "btnRedefinirSalvarL";
-            btnRedefinirSalvarL.Size = new Size(144, 35);
+            btnRedefinirSalvarL.Size = new Size(126, 26);
             btnRedefinirSalvarL.TabIndex = 3;
             btnRedefinirSalvarL.Text = "Redefinir";
             btnRedefinirSalvarL.UseVisualStyleBackColor = false;
@@ -399,10 +400,9 @@
             // 
             // txtCpfRedefinirL
             // 
-            txtCpfRedefinirL.Location = new Point(113, 386);
-            txtCpfRedefinirL.Margin = new Padding(3, 4, 3, 4);
+            txtCpfRedefinirL.Location = new Point(99, 290);
             txtCpfRedefinirL.Name = "txtCpfRedefinirL";
-            txtCpfRedefinirL.Size = new Size(330, 27);
+            txtCpfRedefinirL.Size = new Size(289, 23);
             txtCpfRedefinirL.TabIndex = 1;
             // 
             // lblEqueceuSenha
@@ -410,19 +410,20 @@
             lblEqueceuSenha.AutoSize = true;
             lblEqueceuSenha.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEqueceuSenha.ForeColor = SystemColors.Desktop;
-            lblEqueceuSenha.Location = new Point(779, 504);
+            lblEqueceuSenha.Location = new Point(682, 378);
             lblEqueceuSenha.Name = "lblEqueceuSenha";
-            lblEqueceuSenha.Size = new Size(173, 21);
+            lblEqueceuSenha.Size = new Size(132, 17);
             lblEqueceuSenha.TabIndex = 3;
             lblEqueceuSenha.Text = "Esqueceu a senha?";
             lblEqueceuSenha.Click += EqueceuSenha_Click;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1048, 748);
+            ClientSize = new Size(917, 561);
+            Controls.Add(panelRedefinirSenhaL);
             Controls.Add(PanelCadastroUsuarioL);
             Controls.Add(btncadastraL);
             Controls.Add(pictureBox1);
@@ -436,6 +437,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(lblEqueceuSenha);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "Login";
             ShowIcon = false;

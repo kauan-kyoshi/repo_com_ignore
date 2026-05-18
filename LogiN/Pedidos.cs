@@ -46,34 +46,37 @@ namespace LogiN
             if (!panelValores.Controls.Contains(lblAndamento)) panelValores.Controls.Add(lblAndamento);
             if (!panelValores.Controls.Contains(lblPendentes)) panelValores.Controls.Add(lblPendentes);
             if (!panelValores.Controls.Contains(lblTotalGeral)) panelValores.Controls.Add(lblTotalGeral);
-      
-            lblFinalizados.ForeColor = Color.Green;
-            lblAndamento.ForeColor = Color.FromArgb(212, 160, 23); 
-            lblPendentes.ForeColor = Color.IndianRed;
-            lblTotalGeral.ForeColor = Color.FromArgb(100, 80, 100); 
-
+            
+            //cores
+            lblFinalizados.ForeColor = Color.FromArgb(120, 85, 120);
+            lblAndamento.ForeColor = Color.FromArgb(191, 165, 187);
+            lblPendentes.ForeColor = Color.FromArgb(150, 110, 145);
+            lblTotalGeral.ForeColor = Color.FromArgb(70, 50, 70);
+           
             Font fonteCards = new Font("Century Gothic", 12F, FontStyle.Bold);
             lblFinalizados.Font = fonteCards;
             lblAndamento.Font = fonteCards;
             lblPendentes.Font = fonteCards;
-            lblTotalGeral.Font = fonteCards;
+            lblTotalGeral.Font = new Font("Century Gothic", 14, FontStyle.Bold);
 
             lblFinalizados.AutoSize = true;
             lblAndamento.AutoSize = true;
             lblPendentes.AutoSize = true;
             lblTotalGeral.AutoSize = true;
 
-            lblFinalizados.Top = 20;
-            lblAndamento.Top = 20;
+            //panel
+            panelValores.BorderStyle = BorderStyle.None;
+            panelValores.BackColor = Color.White;
+            panelValores.Height = 90;
+            panelValores.Padding = new Padding(10);
 
-            lblPendentes.Top = 65;
-            lblTotalGeral.Top = 65;
+            //posicionamento
+            lblFinalizados.Location = new Point(20, 15);
+            lblAndamento.Location = new Point(250, 15);
+            lblPendentes.Location = new Point(500, 15);
 
-            lblFinalizados.Left = 30;
-            lblPendentes.Left = 30;
-
-            lblAndamento.Left = 350;
-            lblTotalGeral.Left = 350;
+            lblTotalGeral.AutoSize = true;
+            lblTotalGeral.Location = new Point(250, 50);
 
             lblFinalizados.Visible = true;
             lblAndamento.Visible = true;
@@ -160,10 +163,10 @@ namespace LogiN
 
             decimal totalGeral = totalFinalizados + totalAndamento + totalPendentes;
 
-            lblFinalizados.Text = "Finalizados: R$ " + totalFinalizados.ToString("N2");
-            lblAndamento.Text = "Em Andamento: R$ " + totalAndamento.ToString("N2");
-            lblPendentes.Text = "Pendentes: R$ " + totalPendentes.ToString("N2");
-            lblTotalGeral.Text = "Total Geral: R$ " + totalGeral.ToString("N2");
+            lblFinalizados.Text = "Finalizados R$ " + totalFinalizados.ToString("N2");
+            lblAndamento.Text = "Em Andamento R$ " + totalAndamento.ToString("N2");
+            lblPendentes.Text = "Pendentes R$ " + totalPendentes.ToString("N2");
+            lblTotalGeral.Text = "TOTAL GERAL: R$ " + totalGeral.ToString("N2");
 
             panelValores.Invalidate();
             panelValores.Update();
