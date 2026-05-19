@@ -1,6 +1,7 @@
 using MySql.Data.MySqlClient;
-using MySql.Data.MySqlClient;
 using System;
+using System.Drawing;
+using System.Runtime.ConstrainedExecution;
 using System.Windows.Forms;
 
 namespace LogiN
@@ -18,27 +19,37 @@ namespace LogiN
             PanelCadastroUsuarioL.Visible = false;
             panelRedefinirSenhaL.Visible = false;
 
-            lblEqueceuSenha.Click += EqueceuSenha_Click;
+            btnEsqueceuSenha.Click += BtnEsqueceuSenha_Click;
 
             txtCpfCadastroL.MaxLength = 11;
-            txtSenhaCadastroL.MaxLength = 6;
+            txtSenhaCadastroL.MaxLength = 6; 
 
             txtCpfRedefinirL.MaxLength = 11;
             txtSenhaRedefinirL.MaxLength = 6;
+
+            txtUsuarioL.MaxLength = 20;
+            txtSenhaL.MaxLength = 6;
 
             txtCpfCadastroL.KeyPress += ApenasNumeros_KeyPress;
             txtSenhaCadastroL.KeyPress += ApenasNumeros_KeyPress;
             txtCpfRedefinirL.KeyPress += ApenasNumeros_KeyPress;
             txtSenhaRedefinirL.KeyPress += ApenasNumeros_KeyPress;
 
-            //btnVoltarRedefinirL.Click += btnVoltarRedefinirL_Click;
+            txtNomeCadastroL.PlaceholderText = "Digite seu nome";
+            txtUsuarioL.PlaceholderText = "Digite seu usuário";
+            txtSenhaL.PlaceholderText = "Digite sua senha";
+            txtCpfCadastroL.PlaceholderText = "Digite seu CPF";
+            txtSenhaCadastroL.PlaceholderText = "A senha deve ter 6 números";
+            txtCpfRedefinirL.PlaceholderText = "Digite seu CPF";
+            txtSenhaRedefinirL.PlaceholderText = "A nova senha deve ter 6 números";
+            
         }
 
         private void ApenasNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
 
@@ -59,14 +70,13 @@ namespace LogiN
 
                     if (dr.HasRows)
                     {
-                        MessageBox.Show("Login realizado com sucesso!");
                         TelaEstoque tela = new TelaEstoque();
                         tela.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Usuário ou senha incorretos!");
+                        MessageBox.Show("Usuário ou senha incorretos");
                     }
                 }
                 catch (Exception ex)
@@ -86,18 +96,18 @@ namespace LogiN
         {
             if (txtCpfCadastroL.Text.Length != 11)
             {
-                MessageBox.Show("O CPF deve conter exatamente 11 números!");
+                MessageBox.Show("O CPF deve ter 11 números");
                 return;
             }
-            if (txtSenhaCadastroL.Text.Length != 6)
+            if (txtSenhaCadastroL.Text.Length < 6)
             {
-                MessageBox.Show("A senha deve conter exatamente 6 números!");
+                MessageBox.Show("A senha deve ter 6 números");
                 return;
             }
 
             if (txtNomeCadastroL.Text == "")
             {
-                MessageBox.Show("Preencha o campo Nome!");
+                MessageBox.Show("Esqueceu o campo nome");
                 return;
             }
 
@@ -115,7 +125,7 @@ namespace LogiN
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Cadastro realizado com sucesso!");
+                    MessageBox.Show("Cadastro realizado");
                     LimparCamposCadastro();
                     PanelCadastroUsuarioL.Visible = false;
                 }
@@ -126,7 +136,7 @@ namespace LogiN
             }
         }
 
-        private void EqueceuSenha_Click(object sender, EventArgs e)
+        private void BtnEsqueceuSenha_Click(object sender, EventArgs e)
         {
             panelRedefinirSenhaL.Visible = true;
             panelRedefinirSenhaL.BringToFront();
@@ -136,12 +146,12 @@ namespace LogiN
         {
             if (txtCpfRedefinirL.Text.Length != 11)
             {
-                MessageBox.Show("O CPF deve conter exatamente 11 números!");
+                MessageBox.Show("O CPF deve ter 11 números");
                 return;
             }
-            if (txtSenhaRedefinirL.Text.Length != 6)
+            if (txtSenhaRedefinirL.Text.Length < 6)
             {
-                MessageBox.Show("A nova senha deve conter exatamente 6 números!");
+                MessageBox.Show("A nova senha deve ter 6 números");
                 return;
             }
 
@@ -161,7 +171,7 @@ namespace LogiN
 
                     if (existe == 0)
                     {
-                        MessageBox.Show("CPF não encontrado!");
+                        MessageBox.Show("CPF não encontrado");
                         return;
                     }
 
@@ -173,7 +183,7 @@ namespace LogiN
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Senha redefinida com sucesso!");
+                    MessageBox.Show("Sua senha foi redefinida");
                     LimparCamposRedefinir();
                     panelRedefinirSenhaL.Visible = false;
                 }
@@ -187,7 +197,7 @@ namespace LogiN
         private void btnVoltarLogin_Click(object sender, EventArgs e)
         {
             LimparCamposCadastro();
-            PanelCadastroUsuarioL.Visible = false;
+            panelRedefinirSenhaL.Visible = false;
         }
 
         private void btnVoltarL_Click(object sender, EventArgs e)
